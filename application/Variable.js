@@ -4,10 +4,14 @@
 
 // board grid
 
-var COLUMN_COUNT = 11;
-var ROW_COUNT = 11;
-
-var CELL_WIDTH = 30;
-var CELL_HEIGHT = 30;
+var COLUMN_COUNT = 10;
+var ROW_COUNT = 10;
 
 var OFFSET = 20;
+
+
+var SHIP_WIDTH = 40;
+var SHIP_HEIGHT = 40;
+
+
+

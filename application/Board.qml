@@ -6,65 +6,102 @@ import "."
 Rectangle {
 
     id: board
-    anchors.centerIn: parent
+    x: parent.width/2
 
-    function returnPositionSign(index){
+    //function to return letter coresponing to the index
+    function returnPositionSignColumn(index){
 
         switch(index){
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 6:
-            case 7:
-            case 8:
-            case 9:
-            case 10:
-                return index;
+            case 1: return "A";
+            case 2: return "B";
+            case 3: return "C";
+            case 4: return "D";
+            case 5: return "E";
+            case 6: return "F";
+            case 7: return "G";
+            case 8: return "H";
+            case 9: return "I";
+            case 10: return "J";
 
-            case 11: return "A";
-            case 22: return "B";
-            case 33: return "C";
-            case 44: return "D";
-            case 55: return "E";
-            case 66: return "F";
-            case 77: return "G";
-            case 88: return "H";
-            case 99: return "I";
-            case 110: return "J";
-
-            default: return "";
-        }
+        default: return "";
+      }
 
     }
 
+    //return index if you want to draw it
+    function returnPositionSignRow(index){
 
-    Grid {
+       if(index >0)
+       {
+           return index;
+       }
+       else
+           return "";
+    }
 
-        rows: Variable.ROW_COUNT
-        columns: Variable.COLUMN_COUNT
+
+    Row {
+        id: firstRow
         spacing: 2
-        anchors.centerIn: parent
+        x:0
+        y:0
 
         Repeater {
-            model: Variable.ROW_COUNT * Variable.COLUMN_COUNT
+            model: 11
             delegate: Rectangle {
-                        width: Variable.CELL_WIDTH
-                        height: Variable.CELL_HEIGHT
+                        width: Style.cellWidth
+                        height: Style.cellHeight
                         color: Style.cellColor
                         Text {
                             anchors.horizontalCenter: parent.horizontalCenter
                             anchors.verticalCenter: parent.verticalCenter
-                            text: returnPositionSign(index)
+                            text: returnPositionSignRow(index)
                         }
 
-
-
-
-
-                        }
-
-         }
+                      }
+        }
     }
+    Column{
+        id: firstColumn
+        spacing: 2
+        x:0
+        y:0
+
+        Repeater {
+            model: 11
+            delegate: Rectangle {
+                        width: Style.cellWidth
+                        height: Style.cellHeight
+                        color: Style.cellColor
+                        Text {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: returnPositionSignColumn(index)
+                        }
+
+                      }
+        }
+    }
+    Grid {
+
+        x:Style.cellWidth +2   //after the first column and spacing
+        y:Style.cellHeight +2  // after the first row and spacing
+
+           rows: Variable.ROW_COUNT
+           columns: Variable.COLUMN_COUNT
+           spacing: 2
+
+           Repeater {
+               model: Variable.ROW_COUNT * Variable.COLUMN_COUNT
+               delegate: Rectangle {
+                           width: Style.cellWidth
+                           height: Style.cellHeight
+                           color: Style.cellColor
+                           }
+
+            }
+       }
+
+
+
 }
