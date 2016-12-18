@@ -25,7 +25,7 @@ void EventHandler::connectionInitiated(QString ip, QString port)
         }
         else
         {
-            emit connectionMessage("Player is connected!");
+           emit startGame();
         }
     }
 }
@@ -38,5 +38,5 @@ void EventHandler::waitForConnections()
 
 void EventHandler::peerIsConnected()
 {
-    emit connectionMessage("Player is connected");
+    emit startGame();
 }

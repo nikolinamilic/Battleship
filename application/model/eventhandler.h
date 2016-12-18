@@ -14,6 +14,7 @@ private:
 
 signals:
      void connectionMessage(QString message);
+     void startGame();
 
 public slots:
     //ConnectionManager
