@@ -67,15 +67,18 @@ ColumnLayout {
         id: connectionText
         Layout.alignment: Qt.AlignCenter
         text: "Not connected..."
-        Connections {
-            target: eventHandler
-            ignoreUnknownSignals: true
-            // creating slot: on<SignalName>
-            // reference signal parameter by name in C++ backend (e.g. message)
-            onConnectionMessage: {
-                connectionText.text = message;
-            }
-        }
     }
 
+    Connections {
+        target: eventHandler
+        ignoreUnknownSignals: true
+        // creating slot: on<SignalName>
+        // reference signal parameter by name in C++ backend (e.g. message)
+        onConnectionMessage: {
+            connectionText.text = message;
+        }
+        onStartGame: {
+            screenLoader.source = "Game.qml"
+        }
+    }
 }
