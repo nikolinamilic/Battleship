@@ -4,7 +4,8 @@ QT += qml quick
 CONFIG += c++11
 
 SOURCES += main.cpp \
-    model/connectionmanager.cpp
+    model/connectionmanager.cpp \
+    model/eventhandler.cpp
 
 RESOURCES += qml.qrc
 
@@ -17,4 +18,5 @@ include(deployment.pri)
 DISTFILES +=
 
 HEADERS += \
-    model/connectionmanager.h
+    model/connectionmanager.h \
+    model/eventhandler.h
