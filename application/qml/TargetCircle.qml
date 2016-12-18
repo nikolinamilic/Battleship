@@ -1,6 +1,6 @@
-import QtQuick 2.0
+import QtQuick 2.5
 import "."
-import "Variables.js" as Variable
+import "Variable.js" as Variable
 
 Rectangle {
 

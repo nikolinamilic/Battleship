@@ -1,4 +1,5 @@
 import QtQuick 2.5
+import "."
 
 Item {
 
@@ -6,5 +7,9 @@ Item {
 
     Board {
 
+    }
+
+    ShipList {
+        x:20
     }
 }

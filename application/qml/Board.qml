@@ -2,10 +2,8 @@ import QtQuick 2.5
 import "Variable.js" as Variable
 import "."
 
-
 Rectangle {
 
-    id: board
     x: parent.width/2
 
     //function to return letter coresponing to the index

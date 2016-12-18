@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
 
     EventHandler eh;
 
+    //engine.load(QUrl(QStringLiteral("qrc:/qml/Welcome.qml")));
     engine.rootContext()->setContextProperty("eventHandler", &eh);
 
     return app.exec();
