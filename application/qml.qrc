@@ -1,19 +1,20 @@
 <RCC>
     <qresource prefix="/">
-        <file>main.qml</file>
-        <file>UpperWindow.qml</file>
-        <file>Style.qml</file>
-        <file>MainForm.ui.qml</file>
-        <file>qmldir</file>
-        <file>Board.qml</file>
-        <file>Variable.js</file>
-        <file>LowerWindow.qml</file>
-        <file>TargetCircle.qml</file>
-        <file>pictures/CargoShip.png</file>
-        <file>pictures/BattleShip.png</file>
-        <file>pictures/CruiseShip.png</file>
-        <file>pictures/Sailer.png</file>
-        <file>pictures/Submarine.png</file>
-        <file>ShipList.qml</file>
+        <file>qml/Board.qml</file>
+        <file>qml/LowerWindow.qml</file>
+        <file>qml/main.qml</file>
+        <file>qml/qmldir</file>
+        <file>qml/ShipList.qml</file>
+        <file>qml/Style.qml</file>
+        <file>qml/TargetCircle.qml</file>
+        <file>qml/UpperWindow.qml</file>
+        <file>qml/Variable.js</file>
+        <file>qml/pictures/BattleShip.png</file>
+        <file>qml/pictures/CargoShip.png</file>
+        <file>qml/pictures/CruiseShip.png</file>
+        <file>qml/pictures/Sailer.png</file>
+        <file>qml/pictures/Submarine.png</file>
+        <file>qml/Game.qml</file>
+        <file>qml/Welcome.qml</file>
     </qresource>
 </RCC>

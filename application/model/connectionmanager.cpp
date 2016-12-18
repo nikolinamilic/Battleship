@@ -37,6 +37,7 @@ bool ConnectionManager::connectToPeer(QString hostName, quint16 port)
         disconnectPeer();
     }
     // Initiate connection and wait for response
+    peer.reset(new QTcpSocket());
     peer->connectToHost(hostName, port);
     if (peer->waitForConnected())
     {
