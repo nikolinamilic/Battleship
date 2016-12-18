@@ -2,10 +2,24 @@
 
 #include <QDebug>
 
+ConnectionManager* ConnectionManager::cmInstance = NULL;
+
 ConnectionManager::ConnectionManager(QObject *parent) : QObject(parent), peerIsConnected(false)
 {
     // Register to server signal for new connections
     connect(&server, SIGNAL(newConnection()), this, SLOT(hostNewConnection()));
+}
+
+ConnectionManager *ConnectionManager::GetInstance()
+{
+    if(cmInstance == NULL)
+    {
+        cmInstance = new ConnectionManager();
+    }
+    else
+    {
+        return cmInstance;
+    }
 }
 
 bool ConnectionManager::startListening(quint16 port)

@@ -10,9 +10,7 @@ class EventHandler : public QObject
 public:
     explicit EventHandler(QObject *parent = 0);
 
-
 private:
-    ConnectionManager cm;
 
 signals:
      void connectionMessage(QString message);
