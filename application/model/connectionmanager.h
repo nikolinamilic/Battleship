@@ -10,8 +10,7 @@ class ConnectionManager : public QObject
 {
     Q_OBJECT
 public:
-
-    static ConnectionManager* GetInstance();  //public method to create instance
+    static ConnectionManager& GetInstance();  //public method to create instance
 
     bool isHostListening() const { return server.isListening(); }
     bool startListening(quint16 port);
@@ -36,8 +35,10 @@ signals:
     void receivedMessage(const QString &message);
 
 private:
-    static ConnectionManager* cmInstance;
     ConnectionManager(QObject *parent = 0);
+    ConnectionManager(const ConnectionManager&);
+    ConnectionManager& operator=(const ConnectionManager&);
+
     QTcpServer server;
     QSharedPointer<QTcpSocket> peer;
     bool peerIsConnected;

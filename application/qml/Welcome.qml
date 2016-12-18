@@ -41,7 +41,7 @@ Item {
         onClicked: {
             //gameScreen.visible = true;
             //welcomeScreen.visible = false;
-            eventHandler.connect(peerAddressField.text, peerPortField.text)
+            eventHandler.connectionInitiated(peerAddressField.text, peerPortField.text)
         }
     }
 }

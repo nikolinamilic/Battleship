@@ -16,7 +16,13 @@ signals:
      void connectionMessage(QString message);
 
 public slots:
-    void connect(QString ip, QString port);
+    //ConnectionManager
+    void peerIsConnected ();
+
+    //QML
+    void connectionInitiated(QString ip, QString port);
+    void waitForConnections();
+
 };
 
 #endif // EVENTHANDLER_H

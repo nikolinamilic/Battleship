@@ -2,7 +2,6 @@
 
 #include <QDebug>
 
-ConnectionManager* ConnectionManager::cmInstance = NULL;
 
 ConnectionManager::ConnectionManager(QObject *parent) : QObject(parent), peerIsConnected(false)
 {
@@ -10,16 +9,10 @@ ConnectionManager::ConnectionManager(QObject *parent) : QObject(parent), peerIsC
     connect(&server, SIGNAL(newConnection()), this, SLOT(hostNewConnection()));
 }
 
-ConnectionManager *ConnectionManager::GetInstance()
+ConnectionManager &ConnectionManager::GetInstance()
 {
-    if(cmInstance == NULL)
-    {
-        cmInstance = new ConnectionManager();
-    }
-    else
-    {
-        return cmInstance;
-    }
+    static ConnectionManager manager;
+    return manager;
 }
 
 bool ConnectionManager::startListening(quint16 port)
