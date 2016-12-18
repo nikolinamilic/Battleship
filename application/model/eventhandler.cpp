@@ -12,7 +12,7 @@ void EventHandler::connectionInitiated(QString ip, QString port)
     //if peer is already connected ignore and return message
     if (ConnectionManager::GetInstance().isPeerConnected())
     {
-       emit connectionMessage("You are already connected to: " + ConnectionManager::GetInstance().getPeerAddress().toString() );
+       emit connectionMessage("You are already connected to: " + ConnectionManager::GetInstance().getPeerName() );
     }
     //if peer is not connected try to connect
     else
@@ -22,6 +22,10 @@ void EventHandler::connectionInitiated(QString ip, QString port)
         if(!isConnected)
         {
             emit connectionMessage("Failed to connect!");
+        }
+        else
+        {
+            emit connectionMessage("Player is connected!");
         }
     }
 }
