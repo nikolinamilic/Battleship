@@ -7,7 +7,7 @@ Item {
         x:0
         y:0
         anchors.top: parent.top
-        anchors.bottom: parent.horizontalCenter
+        anchors.bottom: parent.verticalCenter
         anchors.margins: 10
         width: parent.width
         height: parent.height/2
@@ -16,7 +16,7 @@ Item {
     LowerWindow {
         x:0
         y:parent.height/2
-        anchors.top: parent.horizontalCenter
+        anchors.top: parent.verticalCenter
         anchors.bottom: parent.bottom
         anchors.margins: 10
         width: parent.width
