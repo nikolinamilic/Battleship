@@ -3,10 +3,10 @@ import "."
 
 Item {
 
-    id: attackBoard
+    id: attackWindow
 
     Board {
-
+        id: attackBoard
     }
 }
 

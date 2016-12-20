@@ -11,8 +11,11 @@ QtObject {
     property int shipDescriptionLettersWidth: 60
     property int shipDescriptionLettersHeight: 30
 
+    property int rowCount: 10
+    property int columnCount: 10
+
+    property int cellSpacing: 2
     property int cellWidth: 30
     property int cellHeight: 30
-
 }
 

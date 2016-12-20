@@ -1,15 +1,16 @@
 import QtQuick 2.5
-import "Variable.js" as Variable
 import "."
 
 Rectangle {
 
-    x: parent.width/2
+    property alias cells: cells
+
+    x: parent.horizontalCenter - width/2
 
     //function to return letter coresponing to the index
-    function returnPositionSignColumn(index){
+    function returnPositionSignColumn(index) {
 
-        switch(index){
+        switch(index) {
             case 1: return "A";
             case 2: return "B";
             case 3: return "C";
@@ -21,22 +22,19 @@ Rectangle {
             case 9: return "I";
             case 10: return "J";
 
-        default: return "";
-      }
-
+            default: return "";
+        }
     }
 
     //return index if you want to draw it
     function returnPositionSignRow(index){
 
-       if(index >0)
-       {
-           return index;
-       }
-       else
-           return "";
-    }
-
+        if(index >0) {
+            return index;
+        }
+        else
+            return "";
+        }
 
     Row {
         id: firstRow
@@ -55,11 +53,11 @@ Rectangle {
                             anchors.verticalCenter: parent.verticalCenter
                             text: returnPositionSignRow(index)
                         }
-
                       }
         }
     }
-    Column{
+
+    Column {
         id: firstColumn
         spacing: 2
         x:0
@@ -76,30 +74,27 @@ Rectangle {
                             anchors.verticalCenter: parent.verticalCenter
                             text: returnPositionSignColumn(index)
                         }
-
                       }
         }
     }
-    Grid {
 
+    Grid {
         x:Style.cellWidth +2   //after the first column and spacing
         y:Style.cellHeight +2  // after the first row and spacing
 
-           rows: Variable.ROW_COUNT
-           columns: Variable.COLUMN_COUNT
-           spacing: 2
+        rows: Style.rowCount
+        columns: Style.columnCount
+        spacing: 2
 
-           Repeater {
-               model: Variable.ROW_COUNT * Variable.COLUMN_COUNT
-               delegate: Rectangle {
-                           width: Style.cellWidth
-                           height: Style.cellHeight
-                           color: Style.cellColor
-                           }
-
+        Repeater {
+            id: cells
+            model: Style.rowCount * Style.columnCount
+            delegate: Rectangle {
+                       width: Style.cellWidth
+                       height: Style.cellHeight
+                       color: Style.cellColor
             }
-       }
-
-
+        }
+    }
 
 }
